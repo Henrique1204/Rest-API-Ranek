@@ -3,7 +3,7 @@
 function api_usuario_post($req) {
     $nome = sanitize_text_field($req['nome']);
     $email = sanitize_email($req['email']);
-    $senha = sanitize_text_field($req['senha']);
+    $senha = $req['senha'];
     $rua = sanitize_text_field($req['rua']);
     $cep = sanitize_text_field($req['cep']);
     $numero = sanitize_text_field($req['numero']);
@@ -22,7 +22,6 @@ function api_usuario_post($req) {
             'display_name' => $nome,
             'first_name' => $nome,
             'role' => 'subscriber',
-
         );
 
         // Criando usuário.

@@ -8,6 +8,7 @@ require_once($DIR . '/custom-post-type/transacao.php');
 // Endpoints
 require_once($DIR . '/endpoints/usuario_post.php');
 require_once($DIR . '/endpoints/usuario_get.php');
+require_once($DIR . '/endpoints/usuario_put.php');
 
 function expirar_token() {
     return time() + (60 * 60 * 24);
