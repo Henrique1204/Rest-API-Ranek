@@ -40,3 +40,19 @@ function expirar_token() {
 }
 
 add_action('jwt_auth_expire', 'expirar_token');
+
+function my_login_screen() {
+    ?>
+        <style>
+            #login h1 a {
+                background-image: none;
+            }
+
+            #backtoblog {
+                display: none;
+            }
+        </style>
+    <?php
+}
+
+add_action('login_enqueue_scripts', 'my_login_screen');
