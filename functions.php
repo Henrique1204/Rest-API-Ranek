@@ -33,6 +33,7 @@ function get_produto_id_by_slug($slug) {
 
 add_action('rest_pre_serve_request', function () {
     header('Access-Control-Expose-Headers: X-Total-Count');
+    header('Access-Control-Allow-Headers: *');
 });
 
 function expirar_token() {
