@@ -1,7 +1,7 @@
 <?php
 
 function api_produto_delete($req) {
-    $slug = $request['slug'];
+    $slug = sanitize_text_field($request['slug']);
 
     $user = wp_get_current_user();
     $user_id = (int) $user->ID;
