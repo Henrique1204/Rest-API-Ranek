@@ -1,13 +1,13 @@
 <?php
 
 function api_produto_delete($req) {
-    $slug = sanitize_text_field($request['slug']);
-
-    $user = wp_get_current_user();
-    $user_id = (int) $user->ID;
+    $slug = $req['slug'];
 
     $produto_id = get_produto_id_by_slug($slug);
+    $user = wp_get_current_user();
+
     $author_id = (int) get_post_field('post_author', $produto_id);
+    $user_id = (int) $user->ID;
 
     if ($user_id === $author_id) {
         $images = get_attached_media('image', $produto_id);
@@ -24,7 +24,7 @@ function api_produto_delete($req) {
         $res = new WP_Error('permissao', 'Usuário não possuí permissão.', array( 'status' => 401 ));
     }
 
-    return rest_ensure_response($res);
+    return rest_ensure_response(array($res, $produto_id, $slug));
 }
 
 function registrar_api_produto_delete() {

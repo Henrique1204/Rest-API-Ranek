@@ -1,7 +1,7 @@
 <?php
 
 function produto_scheme($slug) {
-    $post_id = get_produto_id_by_slug($slug);   
+    $post_id = get_produto_id_by_slug($slug);
 
     if ($post_id) {
         $post_meta = get_post_meta($post_id);
