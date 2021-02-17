@@ -9,8 +9,10 @@ require_once($DIR . '/custom-post-type/transacao.php');
 require_once($DIR . '/endpoints/usuario_post.php');
 require_once($DIR . '/endpoints/usuario_get.php');
 require_once($DIR . '/endpoints/usuario_put.php');
+
 require_once($DIR . '/endpoints/produto_post.php');
 require_once($DIR . '/endpoints/produto_get.php');
+require_once($DIR . '/endpoints/produto_delete.php');
 
 function get_produto_id_by_slug($slug) {
     $args = array(
